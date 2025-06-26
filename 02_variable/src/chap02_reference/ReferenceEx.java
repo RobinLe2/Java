@@ -16,6 +16,7 @@ public class ReferenceEx {
      *    4) 열거 타입
      */
     
+    
     /*
      *  Java 메모리 구조
      *  

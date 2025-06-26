@@ -13,6 +13,7 @@ public class ArithmeticEx {
     System.out.println(a%b); // 나눈 나머지}
     }
     
+    
     {
     double a = 5;
     double b = 2;
