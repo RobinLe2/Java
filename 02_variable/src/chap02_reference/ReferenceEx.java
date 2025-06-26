@@ -33,6 +33,24 @@ public class ReferenceEx {
     
     //가장 대표적인 참조타입은 문자열을 저장하기 위한 String 클래스 타입입니다.
     
+    /*
+          Method Area (String Pool)
+          ┌──────────────────────┐
+          │ "Hello World"        │ ← 리터럴로 먼저 들어감
+          └──────────────────────┘
+          
+          Heap (new로 생성된 객체)
+          ┌────────────────────────────┐
+          │ new String("Hello World")  │ ← pool에서 복사됨
+          │(내용은 동일하지만 다른 객체)  │
+          └────────────────────────────┘
+                   ▲
+                   │
+          Stack    │
+          ┌─────┐  │
+          │ str │──┘ ← 참조(Reference)
+          └─────┘
+     */
     
     String a = new String("Hello World"); // 변수 a                     : 스택 영역에 생성됩니다. "Hello World"가 저장된 메모리 참조값이 변수 a에 저장됩니다.
                                           // new String("Hello World")   : 힙 영역에 저장됩니다. "Hello World" 자체가 저장됩니다.
