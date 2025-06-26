@@ -33,6 +33,7 @@ public class ReferenceEx {
     
     //가장 대표적인 참조타입은 문자열을 저장하기 위한 String 클래스 타입입니다.
     
+    
     String a = new String("Hello World"); // 변수 a                     : 스택 영역에 생성됩니다. "Hello World"가 저장된 메모리 참조값이 변수 a에 저장됩니다.
                                           // new String("Hello World")   : 힙 영역에 저장됩니다. "Hello World" 자체가 저장됩니다.
     System.out.println(a);                // 자바에서는 참조값이 접근할 수 없으므로 참조값이 출력되지 않습니다. 그냥 참조값을 통해 얻을 수 있는 "Hello World"를 출력합니다.
