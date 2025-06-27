@@ -14,6 +14,7 @@ public class ArithmeticEx {
     }
     
     
+    
     {
     double a = 5;
     double b = 2;

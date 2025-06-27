@@ -15,6 +15,7 @@ public class PromotionEx {
      */
     
    
+    
     int i = 10;
     long l = i; // promotion(자동변환)
     double d= l; //promotion(자동변환)
