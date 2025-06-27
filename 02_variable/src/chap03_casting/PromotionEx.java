@@ -13,7 +13,6 @@ public class PromotionEx {
      * 4. 타입 변환 시 데이터 손실이 발생하지 않습니다.
      * 
      */
-    
    
     
     int i = 10;

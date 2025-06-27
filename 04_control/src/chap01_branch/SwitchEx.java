@@ -11,6 +11,7 @@ public class SwitchEx {
     case 1: System.out.println("홀수"); break;
   }
 
+    
     int y = 10;
     switch ( y % 3 ) { 
     case 0: System.out.println("3의 배수"); break;

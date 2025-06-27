@@ -12,6 +12,8 @@ public class WhileEx {
     }
     System.out.println(total);
 
+    
+    
     // 1~ 100 홀수만
     int oddtotal = 0;
     int odd = 1;

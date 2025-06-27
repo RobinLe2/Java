@@ -11,6 +11,7 @@ public class IfEx {
       System.out.println(x + "은(는) 홀수입니다.");
     }
     
+    
     //3의 배수
     int y = 10;
     if (y % 3 == 0) {

@@ -11,6 +11,7 @@ public class ForEx {
     System.out.println(total);
 
   
+    
   // 1~ 100 홀수의 평균 (합계 / 개수)
   
   int oddTotal = 0;

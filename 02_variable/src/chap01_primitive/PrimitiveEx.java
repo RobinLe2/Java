@@ -5,6 +5,8 @@ public class PrimitiveEx {
   public static void main(String[] args) {
     // TODO Auto-generated method stub
 
+    
+    
     /*
      * Primitive Type
      * 1. 기본 타입을 의미합니다.

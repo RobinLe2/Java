@@ -15,7 +15,6 @@ public class CastingEx {
      */
     
     
-    
     // int -> byte 변환
     int i = 256; // 이진값(비트값) :     1 0 0 0 0 0 0 0 0
     byte b = (byte)i; //------ casting :  0 0 0 0 0 0 0 0
