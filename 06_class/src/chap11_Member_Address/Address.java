@@ -14,6 +14,13 @@ public class Address {
     this.detailAddr = detailAddr;
   }
 
+
+  public void printInfo() {
+    System.out.println("우편번호: " + zipCode);
+    System.out.println("도로명주소: " + roadAddr);
+    System.out.println("상세주소: " + detailAddr);
+  }
+
   public String getZipCode() {
     return zipCode;
   }
@@ -36,11 +43,5 @@ public class Address {
 
   public void setDetailAddr(String detailAddr) {
     this.detailAddr = detailAddr;
-  }
-
-  public void printInfo() {
-    System.out.println("우편번호: " + zipCode);
-    System.out.println("도로명주소: " + roadAddr);
-    System.out.println("상세주소: " + detailAddr);
   }
 }
