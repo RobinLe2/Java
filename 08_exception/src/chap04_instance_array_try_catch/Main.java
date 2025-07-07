@@ -1,10 +1,10 @@
-package chap09_instance_array;
+package chap04_instance_array_try_catch;
 
 import chap05_instance_array_throws.Cart;
 import chap05_instance_array_throws.Customer;
 import chap05_instance_array_throws.Product;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Main {
 
@@ -13,18 +13,18 @@ public class Main {
     
     
     // 제품 진열하기
-    chap05_instance_array_throws.Product product1 = new chap05_instance_array_throws.Product("양파 1.5kg", 3000);
-    chap05_instance_array_throws.Product product2 = new chap05_instance_array_throws.Product("고등어", 5000);
-    chap05_instance_array_throws.Product product3 = new chap05_instance_array_throws.Product("한돈앞다리 1kg", 15000);
-    chap05_instance_array_throws.Product product4 = new chap05_instance_array_throws.Product("블랙앵거스 살치살 500g", 20000);
-    chap05_instance_array_throws.Product product5 = new Product("꼬마돈까스", 9000);
+    Product product1 = new Product("양파 1.5kg", 3000);
+    Product product2 = new Product("고등어", 5000);
+    Product product3 = new Product("한돈앞다리 1kg", 15000);
+    Product product4 = new Product("블랙앵거스 살치살 500g", 20000);
+    Product product5 = new Product("꼬마돈까스", 9000);
     
     // Cart 진열하기
-    chap05_instance_array_throws.Cart cart1 = new Cart();
+    Cart cart1 = new Cart();
     
     
     // Customer 입장
-    chap05_instance_array_throws.Customer customer = new Customer(50000);
+    Customer customer = new Customer(50000);
     
     //Customer가 cart 취득
     customer.setCart(cart1);

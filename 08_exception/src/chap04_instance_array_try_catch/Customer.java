@@ -1,20 +1,29 @@
-package chap09_instance_array;
+package chap04_instance_array_try_catch;
 
 import chap05_instance_array_throws.Cart;
 import chap05_instance_array_throws.Product;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Customer {
   // 필드
   private int money;
-  private chap05_instance_array_throws.Cart cart;
+  private Cart cart;
   
   // 생성자
   public Customer (int money) {
-    this.money = money;
-    
-  }
+    // 마이너스 money는 예외 발생 후 예외 처리
+    try {
+      if (money < 0) {
+        this.money = money;
+        throw new RuntimeException(money + "원은 잘못된 가격입니다.");
+      }
+    }
+    catch(Exception e){
+      System.out.println(e.getMessage());
+    }
+    }
+
 
   
   // 메소드
@@ -26,7 +35,7 @@ public class Customer {
     this.money = money;
   }
 
-  public chap05_instance_array_throws.Cart getCart() {
+  public Cart getCart() {
     return cart;
   }
 
@@ -34,16 +43,20 @@ public class Customer {
     this.cart = cart;
   }
  
-  public void addToCart(chap05_instance_array_throws.Product product) {
-    if ( cart == null) {
-      JOptionPane.showMessageDialog(null, "cart를 먼저 준비하세요");
-      return;
+  public void addToCart(Product product) {
+    //예외 발생 후 예외 처리
+    try{
+      if ( cart == null) {
+        throw new RuntimeException("cart를 먼저 준비하세요");
+      }
+    }catch (Exception e) {
+      System.out.println(e.getMessage());
+
     }
-    cart.addProduct(product);
   }
   
   public void removeFromCart(int idx) {
-    chap05_instance_array_throws.Product removed = cart.removeProduct(idx);
+    Product removed = cart.removeProduct(idx);
     if (removed != null) {
       JOptionPane.showMessageDialog(null, removed.getName() + " 제품이 Cart에서 제거되었습니다.");
 
@@ -51,18 +64,21 @@ public class Customer {
   }
  
   public String purchase() {
+    // 예외 발생 후 예외 처리
+    String receipt = null;
+    try {
     if ( cart == null) {
-      JOptionPane.showMessageDialog(null, "cart가 없어서 구매할 수 없습니다.");
-      return null;
+      throw new RuntimeException("cart가 없어서 구매할 수 없습니다.");
+
   }
     int count = cart.getCount();
     if (cart.getCount() ==0) {
-      JOptionPane.showMessageDialog(null, "cart에 담긴 Product이 없어서 구매할 수 없습니다.");
-      return null;
+      throw new RuntimeException("cart에 담긴 Product이 없어서 구매할 수 없습니다.");
+
     }
-    String receipt = "구디마트 영수증\n"; //----- 영수증의 첫 문구
+    receipt = "구디마트 영수증\n"; //----- 영수증의 첫 문구
     int total = 0; //---------------------------- 구매총액
-    chap05_instance_array_throws.Product[] products =cart.getProducts(); //---- Cart에 저장된 Product[] 배열
+    Product[] products =cart.getProducts(); //---- Cart에 저장된 Product[] 배열
     for (int i =0 ; i< count; i++) {       //---- 구매한 Product 개수만큼 반복
       Product product = products[i];       //----- 구매한 개별 Product
       int price = product.getPrice();
@@ -76,11 +92,15 @@ public class Customer {
       
     }
     if (total > money) { //--------------------- 돈이 부족한 상황
-      JOptionPane.showMessageDialog(null, "돈이 부족해서 구매할 수 없습니다.");
-      return null;        
+      receipt = null;
+      throw new RuntimeException("돈이 부족해서 구매할 수 없습니다.");
     }
     money -= total;    //----------------------- 고객이 구매총액을 내고 구매완료
     receipt += "구매총액......" + total + "\n"; // 영수증 마지막 문구
+
+    } catch (Exception e){
+      System.out.println(e.getMessage());
+    }
     return receipt;
 }
 }

@@ -1,42 +1,41 @@
-package chap13_BankAccount;
+package chap07_BankAccount_throws;
 
 public class BankAccount {
-  
-  private String accNo;  //----- 계좌번호
-  private long balance;  //----- 잔고
-  
-  public BankAccount(String accNo, long balance) {
-    super();
-    this.accNo = accNo;
-    this.balance = balance;
-  }
-  
-  /**
-   * 입금 메소드입니다. 마이너스 입금은 불가능합니다.
-   * @param money 입금액을 의미합니다.
-   */
-  public void deposit(long money) {
-    /* 구현 */
-    if (money < 0 ) {
-      System.out.println(money + "원 입금 불가");
 
-    } else {
-      balance += money;
+    private String accNo;  //----- 계좌번호
+    private long balance;  //----- 잔고
+
+    public BankAccount(String accNo, long balance) {
+        super();
+        this.accNo = accNo;
+        this.balance = balance;
     }
-  }
+
+    /**
+     * 입금 메소드입니다. 마이너스 입금은 불가능합니다.
+     *
+     * @param money 입금액을 의미합니다.
+     */
+    public void deposit(long money) throws DepositException {
+        /* 구현 */
+        if (money < 0) {
+            throw new DepositException(money + "원 입금 불가");
+        } else {
+            balance += money;
+        }
+
+    }
   
   /**
    * 출금 메소드입니다. 마이너스 출금과 잔액보다 큰 금액의 출금은 불가능합니다.
    * @param money 출금하고자 하는 금액입니다. 실제 출금액과 차이가 있을 수 있습니다.
    * @return 실제 출금액을 의미합니다. 출금이 되었다면 money와 동일하고 아니라면 0입니다.
    */
- public long withdrawal(long money) {
+ public long withdrawal(long money) throws WithdrawalException {
    if ( money < 0){
-     System.out.println(money + " 원 출금 불가");
-     return 0;
+       throw new WithdrawalException(money + "원 출금 불가");
    } else if (money > balance){
-     System.out.println("잔액 부족  잔고 : " + balance + "원");
-     return 0;
+       throw new WithdrawalException("잔액 부족  잔고 : " + balance + "원");
    }
     balance -= money;
     return money;
@@ -49,7 +48,7 @@ public class BankAccount {
    * @param bankAccount 이체해줘야할 은행계좌 객체입니다.
    * @param money 이체하고자 하는 금액입니다.
    */
-  public void transfer(chap06_BankAccount.BankAccount bankAccount, long money) {
+  public void transfer(BankAccount bankAccount, long money) throws WithdrawalException, DepositException {
     bankAccount.deposit(withdrawal(money));
 
     /* 구현 */
