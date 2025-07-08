@@ -4,7 +4,7 @@ public class Product {
   // 필드
   private String name;
   private int price;
-  
+
   // 생성자
   public Product() {}
 
@@ -31,6 +31,6 @@ public class Product {
   public void setPrice(int price) {
     this.price = price;
   }
-  
-  
+
+
 }

@@ -5,7 +5,7 @@ import chap05_instance_array_throws.Product;
 import javax.swing.JOptionPane;
 
 public class Cart {
-  
+
   // 필드
   private chap05_instance_array_throws.Product[] products; //----- Product[] 배열 선언(배열의 생성이 필요합니다.)
   private int count;         //------ products 배열에 저장된 Product 개수
@@ -15,10 +15,10 @@ public class Cart {
     // new Cart() 실행 시 products 배열이 생성됩니다.
     products = new chap05_instance_array_throws.Product[LIMIT];
   }
-  
-  
+
+
   //메소드
-  
+
   public chap05_instance_array_throws.Product[] getProducts() {
     return products;
   }
@@ -31,7 +31,7 @@ public class Cart {
   public void setCount(int count) {
     this.count = count;
   }
-  
+
   public void addProduct(chap05_instance_array_throws.Product product) {
     if (product == null) {
       JOptionPane.showMessageDialog(null, "전달된 Product이 없습니다.");
@@ -43,7 +43,7 @@ public class Cart {
     }
     products[count++] = product;
   }
-  
+
   public chap05_instance_array_throws.Product removeProduct(int idx) {
     if (count == 0) {
       JOptionPane.showMessageDialog(null, "Cart가 비어있습니다.");
@@ -57,18 +57,18 @@ public class Cart {
 
     /*
      * 1) Product이 9개 저장된 products 배열
-     * 
+     *
      * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
      * |  p01  |  p02  |  p03  |  p04  |  p05  |  p06  |  p07  |  p08  |  p09  |  null |
      * +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
      *                             ↑                                               ↑
      *                            idx (remove target)                            count
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * 2) 삭제를 위해 삭제할 요소 뒤의 하나씩 앞으로 복사해오기
-     * 
-     *                                   begin                            end             // 복사할 데이터의 개수: end - begin + 1 
+     *
+     *                                   begin                            end             // 복사할 데이터의 개수: end - begin + 1
      *                                 +-------+                      +---------+
      *                                 |idx + 1|                      |count - 1|         // 복사할 데이터의 개수: (count - 1) - (idx + 1) + 1 == count - idx - 1
      *                                 +-------+                      +---------+
@@ -86,11 +86,11 @@ public class Cart {
      *                          +-----+
      *                          | idx |
      *                          +-----+
-     * 
-     * 
-     * 
+     *
+     *
+     *
      *  3) 마지막 요소를 null 처리하고 count 감소하기
-     *  
+     *
      * +-------+-------+-------+=======+=======+=======+=======+=======+-------+-------+
      * |  p01  |  p02  |  p03  ║  p05  |  p06  |  p07  |  p08  |  p09  ║ null  | null  |
      * +-------+-------+-------+=======+=======+=======+=======+=======+-------+-------+
@@ -104,11 +104,11 @@ public class Cart {
     System.arraycopy(products, idx + 1, products, idx, count - idx - 1);
     //               -----------------  -------------  ---------------
     //               FROM               TO             복사할 요소의 개수
-    
+
     products[--count] = null;
     return removed; //--------------------- 삭제된 요소 반환
   }
-  
 
-  
+
+
 }

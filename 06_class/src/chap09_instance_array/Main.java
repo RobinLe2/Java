@@ -9,63 +9,63 @@ import javax.swing.JOptionPane;
 public class Main {
 
   public static void main(String[] args) {
-    
-    
-    
+
+
+
     // 제품 진열하기
     chap05_instance_array_throws.Product product1 = new chap05_instance_array_throws.Product("양파 1.5kg", 3000);
     chap05_instance_array_throws.Product product2 = new chap05_instance_array_throws.Product("고등어", 5000);
     chap05_instance_array_throws.Product product3 = new chap05_instance_array_throws.Product("한돈앞다리 1kg", 15000);
     chap05_instance_array_throws.Product product4 = new chap05_instance_array_throws.Product("블랙앵거스 살치살 500g", 20000);
     chap05_instance_array_throws.Product product5 = new Product("꼬마돈까스", 9000);
-    
+
     // Cart 진열하기
     chap05_instance_array_throws.Cart cart1 = new Cart();
-    
-    
+
+
     // Customer 입장
     chap05_instance_array_throws.Customer customer = new Customer(50000);
-    
+
     //Customer가 cart 취득
     customer.setCart(cart1);
-    
+
     //쇼핑
-    customer.addToCart(product1); 
-    customer.addToCart(product2); 
-    customer.addToCart(product3); 
-    customer.addToCart(product4); 
-    customer.addToCart(product5); 
-    
+    customer.addToCart(product1);
+    customer.addToCart(product2);
+    customer.addToCart(product3);
+    customer.addToCart(product4);
+    customer.addToCart(product5);
+
     customer.removeFromCart(2);
     customer.removeFromCart(3);
     // 구매
     String receipt = customer.purchase();
-    
+
     // 구매 내역 확인
     System.out.println(receipt); // 구매 product 목록 + 총 구매금액
     System.out.println("남은 돈: "+ customer.getMoney());
-    
+
     JOptionPane.showMessageDialog(null,receipt); // 구매 product 목록 + 총 구매금액
     JOptionPane.showMessageDialog(null,"남은 돈: "+ customer.getMoney());
-    
-     
-    
-    
-    
-    
+
+
+
+
+
+
 //    // "1" -> 1
 //    int x = Integer.parseInt("1");
 //    System.out.println(x+1);
-//    
+//
 //    // "1.5" -> 1.5
 //    double y =Double.parseDouble("1.5");
 //    System.out.println(y+1);
-    
+
     // 입력 대화상자
     // showInputDialog()는 항상 String을 반환하므로 적절한 변환 과정이 필요할 수 있습니다.
 //    String name = JOptionPane.showInputDialog("이름을 입력하세요. ");
-//   
-//   
+//
+//
 //    int age = Integer.parseInt(JOptionPane.showInputDialog("나이를 입력하세요."));
 //    System.out.println(name+ "의 나이는 " +age + "살이다.");
   }
