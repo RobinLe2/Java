@@ -1,12 +1,13 @@
 package chap09_instance_array;
 
 public class Product {
+
   // 필드
   private String name;
   private int price;
 
   // 생성자
-  public Product() {}
+  public Product() { }
 
   public Product(String name, int price) {
     super();
@@ -14,8 +15,7 @@ public class Product {
     this.price = price;
   }
 
-  // 메소드(getter , setter  자동화)
-
+  // 메소드
   public String getName() {
     return name;
   }
@@ -31,6 +31,5 @@ public class Product {
   public void setPrice(int price) {
     this.price = price;
   }
-
 
 }

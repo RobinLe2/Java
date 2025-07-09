@@ -1,4 +1,6 @@
-package chap09_instance_array;
+package chap07_instance_array;
+
+import java.util.Map;
 
 import javax.swing.JOptionPane;
 
@@ -7,11 +9,11 @@ public class Main {
   public static void main(String[] args) {
 
     // Product 진열하기
-    Product product1 = new Product("양파1.5kg", 3000);
-    Product product2 = new Product("고등어1손", 5000);
-    Product product3 = new Product("한돈앞다리1kg", 15000);
-    Product product4 = new Product("블랙앵거스살치살500g", 20000);
-    Product product5 = new Product("꼬마돈까스", 9000);
+    Map<String, Object> product1 = Map.of("name", "양파1.5kg", "price", 3000);
+    Map<String, Object> product2 = Map.of("name", "고등어1손", "price", 5000);
+    Map<String, Object> product3 = Map.of("name", "한돈앞다리1kg", "price", 15000);
+    Map<String, Object> product4 = Map.of("name", "블랙앵거스살치살500g", "price", 20000);
+    Map<String, Object> product5 = Map.of("name", "꼬마돈까스", "price", 9000);
 
     // Cart 준비하기
     Cart cart1 = new Cart();
