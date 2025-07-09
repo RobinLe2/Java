@@ -10,9 +10,23 @@ package chap01_string.b_stringbulider;
  *    1) 가변성 : 기존의 문자열을 직접 변경할 수 있습니다.
  *    2) 싱글스레드 환경 : thread-safe 하지 않기 때문에 싱글스레드환경에서만 사용합니다.
  *                       멀티스레드 환경에서는 java.lang.StringBuffer를 사용합니다. (JDK 1.0)
+ *                       StringBuilder와  StringBuffer는 동일한 메소드를 가지고 있습니다.
+ *    3) 문자열 비교 : Object 클래스의 equals() 메소드가 오버라이드 되어 있지 않기 때문에
+ *                    문자열 비교는 String으로 변경한 뒤 할 수 있습니다. (toString() 메소드 활용)
  */
 public class Main {
     public static void main(String[] args) {
 
+        //----- StringBuilder 객체 생성
+        StringBuilder sb = new StringBuilder();
+
+        //----- 문자열 연결
+        sb.append("a");
+        sb.append("b");
+        sb.append("c");
+
+        //----- String 객체로 변경
+        String str = sb.toString();
+        System.out.println(str);
     }
 }
